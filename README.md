@@ -2,7 +2,7 @@
 ### Pasos para la instalación
 1. Instalar nodejs ^16.19.0
 2. Clonar este repositorio
-3. Crear una base de datos en mysql
+3. Crear una base de datos en mysql llamada spacesweet
 4. Crear un archivo `.env` en el root del proyecto, con los siguientes valores
 ```
 PORT = 3000
@@ -14,6 +14,11 @@ DB_PORT=3306
 DB_NAME=spacesweet
 DB_USER=root
 DB_PASS=root
+```
+
+Ejecutar el siguiente comando para construir la base de datos y guardar datos del seeder
+```
+  npm run build-db
 ```
 
 Ejecutar el siguiente comando para correr el sevidor de desarrollo
