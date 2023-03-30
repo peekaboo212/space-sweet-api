@@ -5,9 +5,7 @@ interface ErrorMessage {
 }
 
 const DailyEntryModel = {
-  getDailyTime: async (
-    idUser: number
-  ): Promise<number | null | ErrorMessage> => {
+  getDailyTime: async (idUser: number): Promise<null | ErrorMessage> => {
     try {
       const records = await DailyEntry.findAll({
         attributes: ['start_time', 'ending_time'],

@@ -6,7 +6,7 @@ const DailyEntryController = {
     const idUser: number = parseInt(_req.params.idUser);
     const data = await DailyEntryModel.getDailyTime(idUser);
     // console.log(data);
-    return res.sendStatus(200).send(data);
+    res.status(200).send(data);
   }
 };
 
