@@ -9,10 +9,12 @@ import Planet from '../models/planet.model';
 import PlanetCategory from '../models/planetCategory.model';
 import Reward from '../models/reward.model';
 // SEEDERS
-import { UserSeed } from './user.seeder';
-import { PlanetSeed } from './planet.seeder';
-import { PlanetCategorySeed } from './planetCategory.seeder';
-import { BinnacleSeed } from './binnacle.seeder';
+import { userSeed } from './user.seeder';
+import { planetSeed } from './planet.seeder';
+import { planetCategorySeed } from './planetCategory.seeder';
+import { binnacleSeed } from './binnacle.seeder';
+import { dailyEntrySeed } from './dailyEntry.seeder';
+import { rewardSeed } from './reward.seeder';
 
 (async () => {
   try {
@@ -25,10 +27,12 @@ import { BinnacleSeed } from './binnacle.seeder';
     await DailyEntry.sync();
     await Binnacle.sync();
 
-    await UserSeed();
-    await PlanetCategorySeed();
-    await PlanetSeed();
-    await BinnacleSeed();
+    await userSeed();
+    await planetCategorySeed();
+    await planetSeed();
+    await binnacleSeed();
+    await rewardSeed();
+    await dailyEntrySeed();
 
     console.log('Base de datos sincronizada correctamente');
   } catch (e) {

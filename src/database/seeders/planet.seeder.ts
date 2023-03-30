@@ -1,6 +1,6 @@
 import Planet from '../models/planet.model';
 
-export const PlanetSeed = async (): Promise<void> => {
+export const planetSeed = async (): Promise<void> => {
   await Planet.bulkCreate([
     {
       planet_name: 'divertilandia',

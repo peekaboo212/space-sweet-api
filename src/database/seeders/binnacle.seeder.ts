@@ -1,6 +1,6 @@
 import Binnacle from '../models/binnacle.model';
 
-export const BinnacleSeed = async (): Promise<void> => {
+export const binnacleSeed = async (): Promise<void> => {
   await Binnacle.bulkCreate([
     {
       id_planet: 1,

@@ -22,7 +22,7 @@ class DailyEntry
 DailyEntry.init(
   {
     day: {
-      type: DataTypes.TIME(),
+      type: DataTypes.DATEONLY,
       allowNull: false
     },
     start_time: {

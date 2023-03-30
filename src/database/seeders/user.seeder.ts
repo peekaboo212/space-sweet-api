@@ -1,6 +1,6 @@
 import User from '../models/user.model';
 
-export const UserSeed = async (): Promise<void> => {
+export const userSeed = async (): Promise<void> => {
   await User.bulkCreate([
     {
       username: 'John Doe',

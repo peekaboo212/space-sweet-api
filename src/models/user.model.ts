@@ -1,25 +1,22 @@
 import User from '../database/models/user.model';
 
-interface FindUserResult {
-  id_user: number;
-  username: string;
-  email: string;
-  daily_goal: Date;
-  stars: number;
-  password: string;
-}
-
 interface ErrorMessage {
   message: string;
 }
 
+interface UserGoals {
+  stars: number;
+  daily_goal: Date;
+}
+
 const UserModel = {
-  findUser: async (
+  findGoalsUser: async (
     idUser: number
-  ): Promise<FindUserResult | null | ErrorMessage> => {
+  ): Promise<UserGoals | null | ErrorMessage> => {
     try {
       const user = await User.findOne({
-        where: { id_user: idUser }
+        where: { id_user: idUser },
+        attributes: ['stars', 'daily_goal']
       });
       return user;
     } catch (e) {
@@ -30,18 +27,15 @@ const UserModel = {
     username: string,
     email: string,
     password: string
-  ): Promise<FindUserResult | null | ErrorMessage> => {
+  ): Promise<User | null | ErrorMessage> => {
     try {
-      console.log(username, email, password);
       const user = await User.create({
         username,
         email,
         password,
         stars: 0
       });
-      console.log('siii');
       return user;
-      // return user;
     } catch (e) {
       return { message: 'Error al crear usuario' };
     }

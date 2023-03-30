@@ -7,7 +7,10 @@ interface RewardAttributes {
   time: Date;
 }
 
-class Reward extends Model<RewardAttributes> implements RewardAttributes {
+class Reward
+  extends Model<Partial<RewardAttributes>>
+  implements Partial<RewardAttributes>
+{
   public id_reward!: number;
   public stars!: number;
   public time!: Date;
@@ -25,7 +28,7 @@ Reward.init(
       allowNull: false
     },
     time: {
-      type: DataTypes.TIME(),
+      type: DataTypes.TIME,
       allowNull: false
     }
   },

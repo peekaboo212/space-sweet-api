@@ -6,7 +6,12 @@ const UserController = {
     const username: string = _req.body.username;
     const email: string = _req.body.email;
     const password: string = _req.body.password;
-    const data = await UserModel.addUser(username, email, password);
+    const user = await UserModel.addUser(username, email, password);
+    res.status(200).send(user);
+  },
+  findGoalsUser: async (_req: Request, res: Response) => {
+    const idUser: number = parseInt(_req.params.idUser);
+    const data = await UserModel.findGoalsUser(idUser);
     res.status(200).send(data);
   }
 };
