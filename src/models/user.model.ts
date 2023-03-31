@@ -39,6 +39,22 @@ const UserModel = {
     } catch (e) {
       return { message: 'Error al crear usuario' };
     }
+  },
+  updateStars: async (
+    idUser: number,
+    stars: number
+  ): Promise<true | null | ErrorMessage> => {
+    try {
+      await User.update(
+        { stars },
+        {
+          where: { id_user: idUser }
+        }
+      );
+      return true;
+    } catch (e) {
+      return { message: 'Error al crear usuario' };
+    }
   }
 };
 

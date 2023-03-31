@@ -13,6 +13,12 @@ const UserController = {
     const idUser: number = parseInt(_req.params.idUser);
     const data = await UserModel.findGoalsUser(idUser);
     res.status(200).send(data);
+  },
+  updateStars: async (_req: Request, res: Response) => {
+    const idUser: number = parseInt(_req.params.idUser);
+    const stars: number = parseInt(_req.body.stars);
+    const state = await UserModel.updateStars(idUser, stars);
+    res.status(200).send(state);
   }
 };
 

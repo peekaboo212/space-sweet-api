@@ -1,6 +1,5 @@
 import express from 'express';
-import BinnacleController from 'src/controllers/binnacle.controller';
-
+import BinnacleController from '../controllers/binnacle.controller';
 const binnacleRouter = express.Router();
 
 binnacleRouter.get('/:idUser', BinnacleController.listPlanets);

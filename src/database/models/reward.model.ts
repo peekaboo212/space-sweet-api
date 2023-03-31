@@ -4,7 +4,7 @@ import sequelize from '../index';
 interface RewardAttributes {
   id_reward: number;
   stars: number;
-  time: Date;
+  minutes: number;
 }
 
 class Reward
@@ -13,7 +13,7 @@ class Reward
 {
   public id_reward!: number;
   public stars!: number;
-  public time!: Date;
+  public minutes!: number;
 }
 
 Reward.init(
@@ -27,8 +27,8 @@ Reward.init(
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    time: {
-      type: DataTypes.TIME,
+    minutes: {
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   },

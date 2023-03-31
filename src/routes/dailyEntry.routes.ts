@@ -1,5 +1,5 @@
 import express from 'express';
-import DailyEntryController from 'src/controllers/dailyEntry.controller';
+import DailyEntryController from '../controllers/dailyEntry.controller';
 
 const dailyEntryRouter = express.Router();
 

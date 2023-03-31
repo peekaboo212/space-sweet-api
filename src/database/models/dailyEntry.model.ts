@@ -3,7 +3,6 @@ import sequelize from '../index';
 import User from './user.model';
 
 interface DailyEntryAttributes {
-  day: Date;
   start_time: Date;
   ending_time: Date;
   id_user: number;
@@ -13,7 +12,6 @@ class DailyEntry
   extends Model<DailyEntryAttributes>
   implements DailyEntryAttributes
 {
-  public day!: Date;
   public start_time!: Date;
   public ending_time!: Date;
   public id_user!: number;
@@ -21,16 +19,12 @@ class DailyEntry
 
 DailyEntry.init(
   {
-    day: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
     start_time: {
-      type: DataTypes.TIME(),
+      type: DataTypes.DATE,
       allowNull: false
     },
     ending_time: {
-      type: DataTypes.TIME(),
+      type: DataTypes.DATE,
       allowNull: false
     },
     id_user: {
