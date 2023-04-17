@@ -6,7 +6,7 @@ interface ErrorMessage {
 }
 
 interface Response {
-  validation: boolean;
+  status: boolean;
   username: string;
   email: string;
 }
@@ -27,15 +27,23 @@ const AuthModel = {
         );
         if (passwordIsOk) {
           return {
-            validation: true,
+            status: true,
             username: user.username,
             email: user.email
           };
         } else {
-          return false;
+          return {
+            status: false,
+            username: '',
+            email: ''
+          };
         }
       } else {
-        return false;
+        return {
+          status: false,
+          username: '',
+          email: ''
+        };
       }
     } catch (e) {
       return { message: 'Usuario o contraseña incorrecta' };
