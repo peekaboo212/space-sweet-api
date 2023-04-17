@@ -5,11 +5,17 @@ interface ErrorMessage {
   message: string;
 }
 
+interface Response {
+  validation: boolean;
+  username: string;
+  email: string;
+}
+
 const AuthModel = {
   logIn: async (
     email: string,
     password: string
-  ): Promise<boolean | ErrorMessage> => {
+  ): Promise<Response | boolean | ErrorMessage> => {
     try {
       const user: User | null = await User.findOne({
         where: { email }
@@ -19,7 +25,15 @@ const AuthModel = {
           password,
           user.password
         );
-        return passwordIsOk;
+        if (passwordIsOk) {
+          return {
+            validation: true,
+            username: user.username,
+            email: user.email
+          };
+        } else {
+          return false;
+        }
       } else {
         return false;
       }
